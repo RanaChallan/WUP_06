@@ -95,8 +95,7 @@ fisher.test(table1)
 
 ```{r}
 fisherXY (mydata$race,mydata$cappun, printAll=TRUE)
-```. 
-
+```   
 
 # Discussion and Conclusion
 
