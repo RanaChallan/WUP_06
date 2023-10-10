@@ -56,6 +56,9 @@ barchartGC(~race + cappun,data=mydata, type="percent")
 
 ```
 
+
+For the data shown above, the population that favors capitol punishment the most is the whites, then the "other" and then the black. The data here is similar to the data from the master branch where the percentages of those in favor and opposing are highly similar.    
+
 ## Now with LESS data (more variables give less data due to NA's) create the approate graphic displays to answer the question.
 
 
