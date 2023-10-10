@@ -392,12 +392,144 @@ create the approate graphic displays to answer the question.</h2>
 <div id="numerical-descriptive-results" class="section level3">
 <h3>Numerical Descriptive Results</h3>
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+<pre class="r"><code>table1 &lt;- xtabs(~race + cappun, data=mydata)
+rowPerc(table1)</code></pre>
+<pre><code>##        cappun
+## race     favor oppose  Total
+##   white  67.75  32.25 100.00
+##   black  47.24  52.76 100.00
+##   other  61.25  38.75 100.00</code></pre>
+<pre class="r"><code>print(&quot;----------&quot;)</code></pre>
+<pre><code>## [1] &quot;----------&quot;</code></pre>
+<pre class="r"><code>colPerc(table1)</code></pre>
+<pre><code>##        cappun
+## race     favor oppose
+##   white  79.24  66.89
+##   black  11.43  22.64
+##   other   9.33  10.47
+##   Total 100.00 100.00</code></pre>
+<p>The table above shows that there is 68% of the white population in
+favor of capitol punishment while 32% is opposed. Other population has
+61% in favor and 39% opposed. The black population has 47% in favor with
+53% opposed. The percentages here differ from those in the master
+branch, but are still very similar with each other.</p>
 </div>
 </div>
 <div id="inferential-results" class="section level2">
 <h2>Inferential Results</h2>
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 <p>`</p>
+<pre class="r"><code>chisq.test(table1)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table1
+## X-squared = 19.477, df = 2, p-value = 5.896e-05</code></pre>
+<pre class="r"><code>chisqtestGC(table1)</code></pre>
+<pre><code>## Pearson&#39;s Chi-squared test 
+## 
+## Observed Counts:
+##        cappun
+## race    favor oppose
+##   white   416    198
+##   black    60     67
+##   other    49     31
+## 
+## Counts Expected by Null:
+##        cappun
+## race     favor oppose
+##   white 392.63 221.37
+##   black  81.21  45.79
+##   other  51.16  28.84
+## 
+## Contributions to the chi-square statistic:
+##        cappun
+## race    favor oppose
+##   white  1.39   2.47
+##   black  5.54   9.83
+##   other  0.09   0.16
+## 
+## 
+## Chi-Square Statistic = 19.4773 
+## Degrees of Freedom of the table = 2 
+## P-Value = 1e-04</code></pre>
+<pre class="r"><code>fisher.test(table1)</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  table1
+## p-value = 7.704e-05
+## alternative hypothesis: two.sided</code></pre>
+<pre class="r"><code>fisherXY (mydata$race,mydata$cappun, printAll=TRUE)</code></pre>
+<pre><code>## 
+## contingency table:
+##        y
+## x       favor oppose
+##   white   416    198
+##   black    60     67
+##   other    49     31
+## 
+## ***All 2X2 tests****
+## 
+## [1] &quot;white&quot; &quot;black&quot;
+## [1] &quot;favor&quot;  &quot;oppose&quot;
+##        y
+## x       favor oppose
+##   white   416    198
+##   black    60     67
+## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  fTempTable
+## p-value = 1.741e-05
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  1.562325 3.521989
+## sample estimates:
+## odds ratio 
+##   2.343236 
+## 
+## 
+## [1] &quot;white&quot; &quot;other&quot;
+## [1] &quot;favor&quot;  &quot;oppose&quot;
+##        y
+## x       favor oppose
+##   white   416    198
+##   other    49     31
+## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  fTempTable
+## p-value = 0.2565
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.7926531 2.2004761
+## sample estimates:
+## odds ratio 
+##   1.328594 
+## 
+## 
+## [1] &quot;black&quot; &quot;other&quot;
+## [1] &quot;favor&quot;  &quot;oppose&quot;
+##        y
+## x       favor oppose
+##   black    60     67
+##   other    49     31
+## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  fTempTable
+## p-value = 0.06299
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.3075892 1.0389651
+## sample estimates:
+## odds ratio 
+##  0.5681142</code></pre>
+<p>The fisher XY test tells us that white and black are different with a
+p-value of 0.00001741. There is no difference between black and other
+since the p-value is 0.06299 and with white and other the p-value is
+0.2565.</p>
 </div>
 </div>
 <div id="discussion-and-conclusion" class="section level1">
