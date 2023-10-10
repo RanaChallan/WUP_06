@@ -77,6 +77,7 @@ print("----------")
 colPerc(table1)
 ```   
 
+The table above shows that there is 68% of the white population in favor of capitol punishment while 32% is opposed. Other population has 61% in favor and 39% opposed. The black population has 47% in favor with 53% opposed. The percentages here differ from those in the master branch, but are still very similar with each other.   
 
 
 ## Inferential Results
