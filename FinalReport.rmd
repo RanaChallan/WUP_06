@@ -86,6 +86,16 @@ The table above shows that there is 68% of the white population in favor of capi
 
 `
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+```{r}
+fisherXY (mydata$race,mydata$cappun, printAll=TRUE)
+```. 
 
 
 # Discussion and Conclusion
